@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar, GridToolbarExport } from '@mui/x-data-grid';
 
 const columns = [
   { field: 'id', headerName: 'ID' },
@@ -37,8 +37,11 @@ const GridTable = () => {
         pageSize={pageSize}
         onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
         rowsPerPageOptions={[5, 10, 20]} 
+        // components={{
+        //   Toolbar: GridToolbar,
+        // }}
         components={{
-          Toolbar: GridToolbar,
+          Toolbar: GridToolbarExport,
         }}
       />        
     </div>
