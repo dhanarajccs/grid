@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid'
 
 const GridTable = () => {
 
@@ -11,12 +12,25 @@ const GridTable = () => {
       .then((data) => setTableData(data))
   }, []);
 
-  console.log(tableData);
+  // console.log(tableData);
 
+  const columns = [
+    { field: 'id', headerName: 'ID' },
+    { field: 'username', headerName: 'User Name', width: 300 },
+    { field: 'email', headerName: 'Email', width: 300 },    
+    { 
+      field: 'street', headerName: 'Street', width: 300,
+      valueGetter: (tableData) => console.log(tableData)
+    },    
+  ];
+  
   return (
     <>
-      <div >
-        <DataGrid />
+      <div style={{ height: 400, width: "100%" }}>
+        <DataGrid 
+          rows={tableData} 
+          columns={columns}
+        />
       </div>
     </>
   )  
